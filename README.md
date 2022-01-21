@@ -1,4 +1,4 @@
-# labirint_0
+# labirint 0 v.0.1.0
 
 ![example](/images/20220121_1.gif)
 
