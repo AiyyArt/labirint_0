@@ -9,6 +9,6 @@
 - Matplotlib
 
 ## How to run
-Download the project. In terminal, type:
-
-   `$ python game.py`
+   - Clone the project
+   - Inside the game.py file, assign a relative path to the PNG file in the PDF_LOAD_PATH variable
+   - In terminal run: `$ python game.py`
