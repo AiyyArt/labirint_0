@@ -26,7 +26,7 @@ from map_file_lev0_2 import get_map
 from drawing import Drawing
 from ray_casting import RayCast
 
-PDF_LOAD_PATH = "D:/Ganglion/labirint_0/data/gen_19_7.png" 
+PDF_LOAD_PATH = "C:/labirint_0/data/gen_18_1.png" 
 
 class Game:
     def __init__(self):
