@@ -20,6 +20,6 @@ def get_map(tile_size):
                 if char == '1':
                     world_map[(i * tile_size, j * tile_size)] = '1'
                     collision_walls.append(pygame.Rect(i * tile_size, j * tile_size, tile_size, tile_size))
-                elif char == '2':
-                    world_map[(i * tile_size, j * tile_size)] = '2'
+                # elif char == '2':
+                #     world_map[(i * tile_size, j * tile_size)] = '2'
     return world_map, collision_walls

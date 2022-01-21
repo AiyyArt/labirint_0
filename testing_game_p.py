@@ -26,7 +26,7 @@ from map_file_lev0_2 import get_map
 from drawing import Drawing
 from ray_casting import RayCast
 
-PDF_LOAD_PATH = "D:/Ganglion/Ganglion_v.1_torch/data/png_images/gen_18_1.png" 
+PDF_LOAD_PATH = "D:/Ganglion/labirint_0/data/gen_19_7.png" 
 
 class Game:
     def __init__(self):
@@ -35,6 +35,7 @@ class Game:
         self.color_b = np.random.randint(50, 220) # np.linspace(200, 10).astype(int)
 
         pygame.init()
+        pygame.display.set_caption('*** Labirint 0 ***')
         self.sc = pygame.display.set_mode((WIDTH, HEIGHT))
         self.sc_map = pygame.Surface((WIDTH // MAP_SCALE, HEIGHT // MAP_SCALE))
         self.clock = pygame.time.Clock()
@@ -74,16 +75,12 @@ class Game:
             val[np.around(weights_ids[2, :, :3] * 8).astype(np.uint8)]
         )
         
-        # self.player.brain = g.Ganglion(self.loaded_parameters[0], self.loaded_parameters[1], self.loaded_parameters[2], self.loaded_parameters[3])
-        # self.player.brain = nn.Ganglion_numpy(self.loaded_parameters[2], self.loaded_indices, self.loaded_weights)
         self.player.brain = nn.Ganglion_numpy(weights)
         self.player.test_mode = True
 
         self.player.setup()
 
     def game_event(self):
-        # drawing.background()
-
         self.player.movement()
         self.player.draw()
         
@@ -92,7 +89,7 @@ class Game:
         for x, y in self.finish_coords:
             pygame.draw.rect(self.sc, WALL_COLOR_2, (x, y, TILE, TILE), 2)
 
-        self.drawing.info(0, 0, 1, self.clock)
+        # self.drawing.info(0, 0, 1, self.clock)
 
     def run(self):
         self.player_setup()
