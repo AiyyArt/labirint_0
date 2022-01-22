@@ -5,13 +5,22 @@ Created in 21.01.2022
 by Aiyyskhan Alekseev
 
 https://github.com/AiyyArt
+
+https://opensea.io/collection/aiyyart-collection
+
+ETH: 0x4e6c76f938d941e5b4bf1a11e3fd20f311e59df6
+
 timirkhan@gmail.com
 
 **************************************
 """
 
+# *** path to PNG file ***
+PDF_LOAD_PATH = "C:/labirint_0/data/gen_18_1.png" 
+
 __author__ = "Aiyyskhan Alekseev"
 __version__ = "0.1.0"
+
 
 import math
 import numpy as np
@@ -26,7 +35,6 @@ from map_file_lev0_2 import get_map
 from drawing import Drawing
 from ray_casting import RayCast
 
-PDF_LOAD_PATH = "C:/labirint_0/data/gen_18_1.png" 
 
 class Game:
     def __init__(self):
@@ -103,7 +111,6 @@ class Game:
 
             pygame.display.flip()
             self.clock.tick()
-
 
 if __name__ == "__main__":
     game = Game()

@@ -10,6 +10,7 @@
 
 ## How to run
    - Clone this repository
+   - Put the **PNG** file into **data** directory
    - Inside the **game.py**, assign a path to the **PNG** file in the PDF_LOAD_PATH variable
      (For example: `PDF_LOAD_PATH = "C:/labirint_0/data/gen_18_1.png"`)
    - In terminal run: `$ python game.py`
