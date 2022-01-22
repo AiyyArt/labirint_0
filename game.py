@@ -16,7 +16,7 @@ timirkhan@gmail.com
 """
 
 # *** path to PNG file ***
-PDF_LOAD_PATH = "C:/labirint_0/data/gen_18_1.png" 
+PDF_LOAD_PATH = "C:/.../labirint_0/data/NeuralNet_G000.png" 
 
 __author__ = "Aiyyskhan Alekseev"
 __version__ = "0.1.0"
