@@ -6,7 +6,7 @@
 ## Dependencies
 - PyGame
 - Numpy
-- Matplotlib
+- Pillow
 
 ## How to run
    - Clone this repository
