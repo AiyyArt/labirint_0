@@ -16,7 +16,7 @@ timirkhan@gmail.com
 """
 
 # *** path to PNG file ***
-PDF_LOAD_PATH = "C:/.../labirint_0/data/NeuralNet_G000.png" 
+PDF_LOAD_PATH = "data/NeuralNet_G000.png" #C:/.../labirint_0/data/NeuralNet_G000.png" 
 
 __author__ = "Aiyyskhan Alekseev"
 __version__ = "0.1.0"
@@ -24,8 +24,7 @@ __version__ = "0.1.0"
 
 import math
 import numpy as np
-import matplotlib.cbook as cbook
-import matplotlib.pyplot as plt
+from PIL import Image
 import pygame
 
 from settings import *
@@ -70,17 +69,16 @@ class Game:
         self.player.init_angle = math.pi + (math.pi/2)
         self.player.rays = RayCast(self.world_map)
 
-        with cbook.get_sample_data(PDF_LOAD_PATH) as image_file:
-            _weights = plt.imread(image_file)
+        _weights = np.around((np.array(Image.open(PDF_LOAD_PATH)) / 255.0) * 8.0).astype(np.uint8)
         
         weights_ids = np.rot90(_weights, axes=(2,0))
 
         val = np.array([-1.0,-0.75,-0.5,-0.25,0.0,0.25,0.5,0.75,1.0])
 
         weights = (
-            val[np.around(weights_ids[0, :5, :] * 8).astype(np.uint8)], 
-            val[np.around(weights_ids[1] * 8).astype(np.uint8)], 
-            val[np.around(weights_ids[2, :, :3] * 8).astype(np.uint8)]
+            val[weights_ids[0, :5, :]], 
+            val[weights_ids[1]], 
+            val[weights_ids[2, :, :3]]
         )
         
         self.player.brain = nn.Ganglion_numpy(weights)
