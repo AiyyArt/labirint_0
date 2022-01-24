@@ -30,7 +30,7 @@ import pygame
 
 from settings import *
 import nn_1pl as nn
-from player_for_testing_game import Player
+from player import Player
 from map_file_lev0_2 import get_map
 from drawing import Drawing
 from ray_casting import RayCast
