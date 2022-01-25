@@ -1,5 +1,7 @@
 # labirint 0 
-### v.0.1.0
+### Labirint v.0.1.0
+
+Game for NeuralNet "green" edition
 
 ![example](/img/20220121_1.gif)
 

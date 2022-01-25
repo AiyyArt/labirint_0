@@ -34,6 +34,20 @@ from map_file_lev0_2 import get_map
 from drawing import Drawing
 from ray_casting import RayCast
 
+VAL = np.array([-1.0,-0.75,-0.5,-0.25,0.0,0.25,0.5,0.75,1.0])
+
+
+def png2arr(path, val):
+    _weights_ids = np.around((np.array(Image.open(path)) / 255.0) * 8.0).astype(np.uint8)
+        
+    weights_ids = np.rot90(_weights_ids, axes=(2,0))
+
+    return (
+        val[weights_ids[0, :5, :]], 
+        val[weights_ids[1]], 
+        val[weights_ids[2, :, :3]]
+    )
+
 
 class Game:
     def __init__(self):
@@ -69,17 +83,7 @@ class Game:
         self.player.init_angle = math.pi + (math.pi/2)
         self.player.rays = RayCast(self.world_map)
 
-        _weights = np.around((np.array(Image.open(PDF_LOAD_PATH)) / 255.0) * 8.0).astype(np.uint8)
-        
-        weights_ids = np.rot90(_weights, axes=(2,0))
-
-        val = np.array([-1.0,-0.75,-0.5,-0.25,0.0,0.25,0.5,0.75,1.0])
-
-        weights = (
-            val[weights_ids[0, :5, :]], 
-            val[weights_ids[1]], 
-            val[weights_ids[2, :, :3]]
-        )
+        weights = png2arr(PDF_LOAD_PATH, VAL)
         
         self.player.brain = nn.Ganglion_numpy(weights)
         self.player.test_mode = True
